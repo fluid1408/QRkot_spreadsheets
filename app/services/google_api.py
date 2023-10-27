@@ -16,7 +16,7 @@ async def get_spreadsheet_body(
     column_count: int = const.COLUMN_COUNT,
     body: dict = const.SPREADSHEET_BODY
 ) -> dict:
-    body['properties']['title'] = const.SPREADSHEET_TITLE.format(
+    body['properties']['title'] = copy.deepcopy(const.SPREADSHEET_TITLE).format(
         datetime.now().strftime(
             const.FORMAT
         )
